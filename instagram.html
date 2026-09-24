@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-black text-white antialiased min-h-screen flex items-center justify-center">
+
+    <!-- شاشة تسجيل الدخول -->
+    <div id="auth-screen" class="w-full flex items-center justify-center p-4">
+        <div class="w-full max-w-sm space-y-4">
+            <div class="bg-black border border-neutral-800 p-8 rounded-sm text-center">
+                <h1 class="text-5xl font-serif italic mb-8 tracking-wider font-semibold">Instagram</h1>
+                
+                <form id="auth-form" class="space-y-3">
+                    <div>
+                        <input type="text" id="username" placeholder="اسم المستخدم أو البريد الإلكتروني" required 
+                            class="w-full px-3 py-2.5 bg-neutral-900 border border-neutral-700 rounded text-xs focus:outline-none focus:border-neutral-400 text-white placeholder-neutral-500">
+                    </div>
+                    <div>
+                        <input type="password" id="password" placeholder="كلمة السر" required 
+                            class="w-full px-3 py-2.5 bg-neutral-900 border border-neutral-700 rounded text-xs focus:outline-none focus:border-neutral-400 text-white placeholder-neutral-500">
+                    </div>
+                    <button type="submit" class="w-full bg-[#0095f6] hover:bg-[#1877f2] text-white py-2 rounded font-semibold text-sm transition mt-2">
+                        تسجيل الدخول
+                    </button>
+                </form>
+
+                <div class="flex items-center my-4">
+                    <div class="flex-1 border-t border-neutral-800"></div>
+                    <span class="px-4 text-neutral-500 text-xs font-semibold uppercase">أو</span>
+                    <div class="flex-1 border-t border-neutral-800"></div>
+                </div>
+
+                <div class="text-neutral-400 text-xs">
+                    متصل مباشرة بـ JSONbin
+                </div>
+            </div>
+
+            <div class="bg-black border border-neutral-800 p-4 text-center rounded-sm text-sm">
+                <span>ليس لديك حساب؟ </span>
+                <span onclick="quickRegister()" class="text-[#0095f6] font-semibold cursor-pointer hover:underline">سجل دخول مباشرة باسمك</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- التطبيق الرئيسي -->
+    <div id="app-screen" class="hidden w-full min-h-screen flex flex-col md:flex-row max-w-5xl mx-auto">
+        <!-- الشريط الجانبي -->
+        <div class="w-full md:w-64 border-b md:border-b-0 md:border-r border-neutral-800 p-4 flex md:flex-col justify-between items-center md:items-start bg-black sticky top-0 z-50">
+            <h1 class="text-2xl font-serif italic hidden md:block mb-8 px-2">Instagram</h1>
+            <div class="flex md:flex-col w-full justify-around md:justify-start space-y-0 md:space-y-2">
+                <button onclick="switchTab('feed')" class="flex items-center space-x-4 space-x-reverse p-3 hover:bg-neutral-900 rounded-lg w-full transition font-medium">
+                    <i class="fa-solid fa-house text-xl w-6"></i><span class="hidden md:inline">الرئيسية</span>
+                </button>
+                <button onclick="switchTab('chat')" class="flex items-center space-x-4 space-x-reverse p-3 hover:bg-neutral-900 rounded-lg w-full transition font-medium">
+                    <i class="fa-solid fa-paper-plane text-xl w-6"></i><span class="hidden md:inline">الرسائل</span>
+                </button>
+                <button onclick="switchTab('profile')" class="flex items-center space-x-4 space-x-reverse p-3 hover:bg-neutral-900 rounded-lg w-full transition font-medium">
+                    <i class="fa-solid fa-user text-xl w-6"></i><span class="hidden md:inline">الملف الشخصي</span>
+                </button>
+            </div>
+            <button onclick="logout()" class="hidden md:flex items-center space-x-4 space-x-reverse p-3 text-red-500 hover:bg-neutral-900 rounded-lg w-full transition mt-auto font-medium">
+                <i class="fa-solid fa-right-from-bracket text-xl w-6"></i><span>تسجيل الخروج</span>
+            </button>
+        </div>
+
+        <!-- المحتوى الرئيسي -->
+        <div class="flex-1 p-4 overflow-y-auto max-h-screen">
+            <!-- تبويب الرئيسية -->
+            <div id="tab-feed" class="max-w-md mx-auto space-y-6 py-4">
+                <div class="bg-neutral-900 border border-neutral-800 p-4 rounded-xl">
+                    <h3 class="font-semibold mb-3 text-sm text-neutral-300">إنشاء منشور جديد</h3>
+                    <input type="text" id="post-caption" placeholder="بماذا تفكر؟..." class="w-full p-2.5 bg-black border border-neutral-800 rounded text-sm mb-3 focus:outline-none focus:border-neutral-600">
+                    <input type="text" id="post-image-url" placeholder="رابط الصورة المباشر (URL)..." class="w-full p-2.5 bg-black border border-neutral-800 rounded text-sm mb-3 focus:outline-none focus:border-neutral-600">
+                    <button onclick="createPost()" class="w-full bg-[#0095f6] hover:bg-[#1877f2] text-white p-2 rounded text-sm font-semibold transition">نشر</button>
+                </div>
+                <div id="posts-container" class="space-y-6">
+                    <p class="text-center text-neutral-500 text-sm">جاري تحميل المنشورات...</p>
+                </div>
+            </div>
+
+            <!-- تبويب الشات -->
+            <div id="tab-chat" class="hidden max-w-2xl mx-auto bg-neutral-900 border border-neutral-800 rounded-xl h-[85vh] flex flex-col my-4">
+                <div class="p-4 border-b border-neutral-800 font-semibold flex justify-between items-center text-sm">
+                    <span>محادثة الجماعة (Direct Chat)</span>
+                    <button onclick="loadData()" class="text-xs bg-black border border-neutral-800 px-3 py-1.5 rounded hover:bg-neutral-800 transition"><i class="fa-solid fa-rotate"></i> تحديث</button>
+                </div>
+                <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 flex flex-col">
+                    <p class="text-center text-neutral-500 text-sm">جاري تحميل الرسائل...</p>
+                </div>
+                <div class="p-3 border-t border-neutral-800 flex gap-2 bg-neutral-950 rounded-b-xl">
+                    <input type="text" id="chat-input" placeholder="اكتب رسالة..." class="flex-1 p-2.5 bg-black border border-neutral-800 rounded text-sm focus:outline-none focus:border-neutral-600">
+                    <button onclick="sendMessage()" class="bg-[#0095f6] hover:bg-[#1877f2] px-5 rounded text-sm font-semibold transition">إرسال</button>
+                </div>
+            </div>
+
+            <!-- تبويب الملف الشخصي -->
+            <div id="tab-profile" class="hidden max-w-md mx-auto text-center space-y-4 py-12">
+                <div class="w-24 h-24 bg-gradient-to-tr from-yellow-500 via-red-500 to-purple-600 p-1 rounded-full mx-auto">
+                    <div class="w-full h-full bg-black rounded-full flex items-center justify-center text-3xl font-bold uppercase" id="profile-initial">U</div>
+                </div>
+                <h2 id="profile-username" class="font-semibold text-lg text-white">اسم المستخدم</h2>
+                <p class="text-neutral-500 text-xs">متصل عبر قاعدة بيانات JSONbin الخاصة بك</p>
+                <button onclick="logout()" class="md:hidden bg-red-600/20 text-red-500 px-4 py-2 rounded text-xs font-semibold">تسجيل الخروج</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // إعداداتك المدمجة رسمياً
+        const BIN_ID = "6ab46a95ffd5d160532895a5";
+        const API_KEY = "$2a$10$ao7CKfRkRsB2DcgYyd9rXezResMbxJIi7Ttp7WAH0.TeXj2L8tamO";
+        
+        const API_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
+
+        let currentUser = localStorage.getItem('insta_user') || null;
+
+        if (currentUser) {
+            showApp();
+        }
+
+        document.getElementById('auth-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const usernameInput = document.getElementById('username').value.trim();
+            if (!usernameInput) return;
+            currentUser = usernameInput;
+            localStorage.setItem('insta_user', usernameInput);
+            showApp();
+        });
+
+        function quickRegister() {
+            const usernameInput = prompt("أدخل اسم المستخدم الخاص بك:");
+            if (!usernameInput) return;
+            currentUser = usernameInput.trim();
+            localStorage.setItem('insta_user', currentUser);
+            showApp();
+        }
+
+        function showApp() {
+            document.getElementById('auth-screen').classList.add('hidden');
+            document.getElementById('app-screen').classList.remove('hidden');
+            document.getElementById('profile-username').innerText = currentUser;
+            document.getElementById('profile-initial').innerText = currentUser[0].toUpperCase();
+            loadData();
+            setInterval(loadData, 5000);
+        }
+
+        window.logout = () => {
+            localStorage.removeItem('insta_user');
+            location.reload();
+        };
+
+        window.switchTab = (tab) => {
+            document.getElementById('tab-feed').classList.add('hidden');
+            document.getElementById('tab-chat').classList.add('hidden');
+            document.getElementById('tab-profile').classList.add('hidden');
+            document.getElementById(`tab-${tab}`).classList.remove('hidden');
+        };
+
+        async function loadData() {
+            try {
+                const response = await fetch(API_URL, {
+                    headers: { 'X-Master-Key': API_KEY }
+                });
+                const data = await response.json();
+                const db = data.record;
+
+                renderPosts(db.posts || []);
+                renderMessages(db.messages || []);
+            } catch (err) {
+                console.error("خطأ في جلب البيانات:", err);
+            }
+        }
+
+        async function updateDB(newData) {
+            try {
+                await fetch(API_URL, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Master-Key': API_KEY
+                    },
+                    body: JSON.stringify(newData)
+                });
+                loadData();
+            } catch (err) {
+                console.error("خطأ في حفظ البيانات:", err);
+            }
+        }
+
+        window.createPost = async () => {
+            const caption = document.getElementById('post-caption').value;
+            const imageUrl = document.getElementById('post-image-url').value;
+            if (!imageUrl) return alert('الرجاء إدخال رابط الصورة');
+
+            const response = await fetch(API_URL, { headers: { 'X-Master-Key': API_KEY } });
+            const data = await response.json();
+            const db = data.record;
+
+            const newPost = {
+                user: currentUser,
+                caption,
+                imageUrl,
+                time: new Date().toLocaleTimeString()
+            };
+
+            db.posts = db.posts || [];
+            db.posts.unshift(newPost);
+
+            await updateDB(db);
+            document.getElementById('post-caption').value = '';
+            document.getElementById('post-image-url').value = '';
+        };
+
+        function renderPosts(posts) {
+            let html = '';
+            posts.forEach(post => {
+                html += `
+                    <div class="bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden">
+                        <div class="p-3 text-xs font-semibold border-b border-neutral-800 flex justify-between items-center text-neutral-300">
+                            <span><i class="fa-solid fa-circle-user ml-1.5 text-base"></i>${post.user}</span>
+                            <span class="text-[10px] text-neutral-500">${post.time || ''}</span>
+                        </div>
+                        <img src="${post.imageUrl}" class="w-full object-cover max-h-96 bg-neutral-950" onerror="this.src='https://via.placeholder.com/400?text=الصورة+غير+متوفرة'">
+                        <div class="p-3 text-xs">
+                            <span class="font-bold ml-2 text-neutral-200">${post.user}</span>
+                            <span class="text-neutral-300">${post.caption || ''}</span>
+                        </div>
+                    </div>
+                `;
+            });
+            document.getElementById('posts-container').innerHTML = html || '<p class="text-center text-neutral-500 text-sm">لا توجد منشورات حالياً</p>';
+        }
+
+        window.sendMessage = async () => {
+            const text = document.getElementById('chat-input').value.trim();
+            if (!text) return;
+
+            const response = await fetch(API_URL, { headers: { 'X-Master-Key': API_KEY } });
+            const data = await response.json();
+            const db = data.record;
+
+            const newMsg = {
+                user: currentUser,
+                text,
+                time: new Date().toLocaleTimeString()
+            };
+
+            db.messages = db.messages || [];
+            db.messages.push(newMsg);
+
+            await updateDB(db);
+            document.getElementById('chat-input').value = '';
+        };
+
+        function renderMessages(messages) {
+            let html = '';
+            messages.forEach(msg => {
+                const isMe = msg.user === currentUser;
+                html += `
+                    <div class="flex flex-col ${isMe ? 'items-end' : 'items-start'} mb-2">
+                        <span class="text-[10px] text-neutral-500 mb-0.5 px-1">${msg.user} (${msg.time || ''})</span>
+                        <div class="p-2.5 rounded-2xl text-xs max-w-[75%] ${isMe ? 'bg-[#0095f6] text-white rounded-br-sm' : 'bg-neutral-800 text-neutral-200 rounded-bl-sm'}">${msg.text}</div>
+                    </div>
+                `;
+            });
+            const chatContainer = document.getElementById('chat-messages');
+            chatContainer.innerHTML = html || '<p class="text-center text-neutral-500 text-sm">لا توجد رسائل بعد، ابدأ المحادثة!</p>';
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+    </script>
+</body>
+</html>

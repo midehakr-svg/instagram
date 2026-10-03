@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+/* ===== reset (مكافئ preflight) ===== */
+*,*:before,*:after{-webkit-box-sizing:border-box;box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}
+html{line-height:1.5;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+body{margin:0;line-height:inherit;font-family:'Inter',sans-serif;background-color:#000;color:#fff}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{font-size:inherit;font-weight:inherit}
+button,input,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}
+button{background-color:transparent;background-image:none;-webkit-appearance:button;cursor:pointer;text-transform:none}
+input[type="text"],input[type="password"],input:not([type]),textarea{-webkit-appearance:none;border-radius:0}
+textarea{resize:vertical}
+input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{color:#9ca3af;opacity:1}
+input::placeholder,textarea::placeholder{color:#9ca3af;opacity:1}
+img,video,canvas{display:block;vertical-align:middle}
+img,video{max-width:100%;height:auto}
+strong,b{font-weight:bolder}
+[hidden]{display:none}
+
+/* Font Awesome: iOS 7 ما يفهمش var() */
+.fa,.fa-solid,.fa-regular{display:inline-block}
+
+.-mb-2{margin-bottom:-.5rem}
+.absolute{position:absolute}
+.bg-\[\#0095f6\]{background-color:#0095f6}
+.bg-black{background-color:#000}
+.bg-black\/80{background-color:rgba(0,0,0,.8)}
+.bg-black\/95{background-color:rgba(0,0,0,.95)}
+.bg-gradient-to-tr{background-image:-webkit-linear-gradient(bottom left,#eab308,#ef4444,#9333ea);background-image:linear-gradient(to top right,#eab308,#ef4444,#9333ea)}
+.bg-neutral-700{background-color:#404040}
+.bg-neutral-800{background-color:#262626}
+.bg-neutral-900{background-color:#171717}
+.bg-neutral-950{background-color:#0a0a0a}
+.bg-red-500{background-color:#ef4444}
+.bg-transparent{background-color:transparent}
+.bg-white{background-color:#fff}
+.border{border-width:1px}
+.border-2{border-width:2px}
+.border-\[\#0095f6\]{border-color:#0095f6}
+.border-b{border-bottom-width:1px}
+.border-b-2{border-bottom-width:2px}
+.border-black{border-color:#000}
+.border-blue-400{border-color:#60a5fa}
+.border-l{border-left-width:1px}
+.border-neutral-700{border-color:#404040}
+.border-neutral-800{border-color:#262626}
+.border-t{border-top-width:1px}
+.border-white{border-color:#fff}
+.bottom-0{bottom:0}
+.break-words{word-wrap:break-word;overflow-wrap:break-word}
+.cursor-pointer{cursor:pointer}
+.fixed{position:fixed}
+.flex-1{-webkit-flex:1 1 0%;flex:1 1 0%}
+.flex-col{-webkit-flex-direction:column;flex-direction:column}
+.flex-shrink-0{-webkit-flex-shrink:0;flex-shrink:0}
+.flex-wrap{-webkit-flex-wrap:wrap;flex-wrap:wrap}
+.font-bold{font-weight:700}
+.font-medium{font-weight:500}
+.font-normal{font-weight:400}
+.font-semibold{font-weight:600}
+.font-serif{font-family:ui-serif,Georgia,Cambria,"Times New Roman",Times,serif}
+.grid{display:block}
+.h-0\.5{height:.125rem}
+.h-10{height:2.5rem}
+.h-16{height:4rem}
+.h-20{height:5rem}
+.h-8{height:2rem}
+.h-\[88vh\]{height:88vh}
+.h-full{height:100%}
+.inset-0{top:0;right:0;bottom:0;left:0}
+.inset-x-0{left:0;right:0}
+.italic{font-style:italic}
+.items-center{-webkit-align-items:center;align-items:center}
+.items-end{-webkit-align-items:flex-end;align-items:flex-end}
+.items-start{-webkit-align-items:flex-start;align-items:flex-start}
+.justify-around{-webkit-justify-content:space-around;justify-content:space-around}
+.justify-between{-webkit-justify-content:space-between;justify-content:space-between}
+.justify-center{-webkit-justify-content:center;justify-content:center}
+.max-h-32{max-height:8rem}
+.max-h-60{max-height:15rem}
+.max-h-96{max-height:24rem}
+.max-h-\[450px\]{max-height:450px}
+.max-h-\[480px\]{max-height:480px}
+.max-h-\[80vh\]{max-height:80vh}
+.max-h-\[85vh\]{max-height:85vh}
+.max-h-screen{max-height:100vh}
+.max-w-2xl{max-width:42rem}
+.max-w-5xl{max-width:64rem}
+.max-w-6xl{max-width:72rem}
+.max-w-\[64px\]{max-width:64px}
+.max-w-\[75\%\]{max-width:75%}
+.max-w-md{max-width:28rem}
+.max-w-sm{max-width:24rem}
+.max-w-xs{max-width:20rem}
+.min-h-screen{min-height:100vh}
+.object-cover{object-fit:cover}
+.opacity-60{opacity:.6}
+.overflow-hidden{overflow:hidden}
+.overflow-x-auto{overflow-x:auto}
+.overflow-y-auto{overflow-y:auto}
+.relative{position:relative}
+.right-0{right:0}
+.right-2{right:.5rem}
+.rounded{border-radius:.25rem}
+.rounded-2xl{border-radius:1rem}
+.rounded-bl-sm{border-bottom-left-radius:.125rem}
+.rounded-br-sm{border-bottom-right-radius:.125rem}
+.rounded-full{border-radius:9999px}
+.rounded-lg{border-radius:.5rem}
+.rounded-sm{border-radius:.125rem}
+.rounded-xl{border-radius:.75rem}
+.select-none{-webkit-user-select:none;user-select:none}
+.text-2xl{font-size:1.5rem;line-height:2rem}
+.text-3xl{font-size:1.875rem;line-height:2.25rem}
+.text-5xl{font-size:3rem;line-height:1}
+.text-\[10px\]{font-size:10px}
+.text-\[9px\]{font-size:9px}
+.text-\[\#0095f6\]{color:#0095f6}
+.text-base{font-size:1rem;line-height:1.5rem}
+.text-blue-400{color:#60a5fa}
+.text-center{text-align:center}
+.text-lg{font-size:1.125rem;line-height:1.75rem}
+.text-neutral-200{color:#e5e5e5}
+.text-neutral-300{color:#d4d4d4}
+.text-neutral-400{color:#a3a3a3}
+.text-neutral-500{color:#737373}
+.text-red-500{color:#ef4444}
+.text-sm{font-size:.875rem;line-height:1.25rem}
+.text-white{color:#fff}
+.text-xl{font-size:1.25rem;line-height:1.75rem}
+.text-xs{font-size:.75rem;line-height:1rem}
+.top-0{top:0}
+.top-2{top:.5rem}
+.tracking-wider{letter-spacing:.05em}
+.transition{-webkit-transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter;-webkit-transition-timing-function:cubic-bezier(.4,0,.2,1);transition-timing-function:cubic-bezier(.4,0,.2,1);-webkit-transition-duration:.15s;transition-duration:.15s}
+.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.uppercase{text-transform:uppercase}
+.w-10{width:2.5rem}
+.w-16{width:4rem}
+.w-1\/3{width:33.333333%}
+.w-20{width:5rem}
+.w-2\/3{width:66.666667%}
+.w-6{width:1.5rem}
+.w-8{width:2rem}
+.w-full{width:100%}
+.z-50{z-index:50}
+.p-1{padding:.25rem}
+.p-2{padding:.5rem}
+.p-2\.5{padding:.625rem}
+.p-3{padding:.75rem}
+.p-4{padding:1rem}
+.p-6{padding:1.5rem}
+.p-8{padding:2rem}
+.p-\[2px\]{padding:2px}
+.mx-auto{margin-left:auto;margin-right:auto}
+.my-2{margin-top:.5rem;margin-bottom:.5rem}
+.my-auto{margin-top:auto;margin-bottom:auto}
+.px-1{padding-left:.25rem;padding-right:.25rem}
+.px-1\.5{padding-left:.375rem;padding-right:.375rem}
+.px-2{padding-left:.5rem;padding-right:.5rem}
+.px-3{padding-left:.75rem;padding-right:.75rem}
+.px-4{padding-left:1rem;padding-right:1rem}
+.py-1{padding-top:.25rem;padding-bottom:.25rem}
+.py-12{padding-top:3rem;padding-bottom:3rem}
+.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}
+.py-2{padding-top:.5rem;padding-bottom:.5rem}
+.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}
+.py-3{padding-top:.75rem;padding-bottom:.75rem}
+.py-4{padding-top:1rem;padding-bottom:1rem}
+.py-6{padding-top:1.5rem;padding-bottom:1.5rem}
+.mb-0\.5{margin-bottom:.125rem}
+.mb-2{margin-bottom:.5rem}
+.mb-4{margin-bottom:1rem}
+.mb-6{margin-bottom:1.5rem}
+.mb-8{margin-bottom:2rem}
+.ml-1{margin-left:.25rem}
+.ml-1\.5{margin-left:.375rem}
+.ml-2{margin-left:.5rem}
+.mr-auto{margin-right:auto}
+.mt-1{margin-top:.25rem}
+.mt-2{margin-top:.5rem}
+.mt-3{margin-top:.75rem}
+.mt-4{margin-top:1rem}
+.mt-auto{margin-top:auto}
+.pb-2{padding-bottom:.5rem}
+.pb-20{padding-bottom:5rem}
+.pt-1{padding-top:.25rem}
+.pt-2{padding-top:.5rem}
+.pt-3{padding-top:.75rem}
+.flex{display:-webkit-flex;display:flex}
+.hidden{display:none}
+.hover\:bg-\[\#1877f2\]:hover{background-color:#1877f2}
+.hover\:bg-neutral-700:hover{background-color:#404040}
+.hover\:bg-neutral-800\/50:hover{background-color:rgba(38,38,38,.5)}
+.hover\:bg-neutral-900:hover{background-color:#171717}
+.hover\:text-blue-400:hover{color:#60a5fa}
+.hover\:text-red-500:hover{color:#ef4444}
+.focus\:border-neutral-400:focus{border-color:#a3a3a3}
+.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}
+@media (min-width:768px){
+.md\:block{display:block}
+.md\:border-l{border-left-width:1px}
+.md\:border-t-0{border-top-width:0}
+.md\:bottom-auto{bottom:auto}
+.md\:flex{display:-webkit-flex;display:flex}
+.md\:flex-col{-webkit-flex-direction:column;flex-direction:column}
+.md\:flex-row{-webkit-flex-direction:row;flex-direction:row}
+.md\:h-28{height:7rem}
+.md\:hidden{display:none}
+.md\:inline{display:inline}
+.md\:inset-x-auto{left:auto;right:auto}
+.md\:items-start{-webkit-align-items:flex-start;align-items:flex-start}
+.md\:justify-start{-webkit-justify-content:flex-start;justify-content:flex-start}
+.md\:left-4{left:1rem}
+.md\:p-4{padding:1rem}
+.md\:p-6{padding:1.5rem}
+.md\:pb-6{padding-bottom:1.5rem}
+.md\:right-auto{right:auto}
+.md\:sticky{position:-webkit-sticky;position:sticky}
+.md\:text-sm{font-size:.875rem;line-height:1.25rem}
+.md\:top-0{top:0}
+.md\:w-28{width:7rem}
+.md\:w-64{width:16rem}
+}
+/* ===== scroll سلس على iOS ===== */
+.overflow-y-auto,.overflow-x-auto{-webkit-overflow-scrolling:touch}
+
+/* ===== placeholder ===== */
+.placeholder-neutral-500::-webkit-input-placeholder{color:#737373}
+.placeholder-neutral-500::placeholder{color:#737373}
+
+/* ===== file input ===== */
+.file\:mr-4::-webkit-file-upload-button{margin-right:1rem}
+.file\:py-2::-webkit-file-upload-button{padding-top:.5rem;padding-bottom:.5rem}
+.file\:px-4::-webkit-file-upload-button{padding-left:1rem;padding-right:1rem}
+.file\:rounded::-webkit-file-upload-button{border-radius:.25rem}
+.file\:border-0::-webkit-file-upload-button{border-width:0}
+.file\:text-xs::-webkit-file-upload-button{font-size:.75rem;line-height:1rem}
+.file\:font-semibold::-webkit-file-upload-button{font-weight:600}
+.file\:bg-\[\#0095f6\]::-webkit-file-upload-button{background-color:#0095f6}
+.file\:text-white::-webkit-file-upload-button{color:#fff}
+.file\:mr-4::file-selector-button{margin-right:1rem}
+.file\:py-2::file-selector-button{padding-top:.5rem;padding-bottom:.5rem}
+.file\:px-4::file-selector-button{padding-left:1rem;padding-right:1rem}
+.file\:rounded::file-selector-button{border-radius:.25rem}
+.file\:border-0::file-selector-button{border-width:0}
+.file\:text-xs::file-selector-button{font-size:.75rem;line-height:1rem}
+.file\:font-semibold::file-selector-button{font-weight:600}
+.file\:bg-\[\#0095f6\]::file-selector-button{background-color:#0095f6}
+.file\:text-white::file-selector-button{color:#fff}
+
+/* ===== space-y / space-x (الصفحة كلها RTL) ===== */
+.space-y-0>*+*{margin-top:0;margin-bottom:0}
+.space-y-0\.5>*+*{margin-top:.125rem;margin-bottom:0}
+.space-y-2>*+*{margin-top:.5rem;margin-bottom:0}
+.space-y-3>*+*{margin-top:.75rem;margin-bottom:0}
+.space-y-4>*+*{margin-top:1rem;margin-bottom:0}
+.space-y-6>*+*{margin-top:1.5rem;margin-bottom:0}
+.space-x-4>*+*{margin-right:1rem;margin-left:0}
+
+/* ===== gap (بالـ margin، حيت flex-gap ما يخدمش في iOS 7) ===== */
+.flex.gap-1>*{margin-left:.25rem}
+.flex.gap-2>*{margin-left:.5rem}
+.flex.gap-3>*{margin-left:.75rem}
+.flex.gap-4>*{margin-left:1rem}
+.flex.gap-6>*{margin-left:1.5rem}
+.flex.gap-8>*{margin-left:2rem}
+.flex.gap-1>*:last-child,.flex.gap-2>*:last-child,.flex.gap-3>*:last-child,
+.flex.gap-4>*:last-child,.flex.gap-6>*:last-child,.flex.gap-8>*:last-child{margin-left:0}
+.gap-4.flex-wrap{margin-left:-1rem;margin-bottom:-1rem}
+.gap-4.flex-wrap>*,.gap-4.flex-wrap>*:last-child{margin-left:1rem;margin-bottom:1rem}
+
+/* ===== divide ===== */
+.divide-y>*+*{border-top-width:1px;border-bottom-width:0}
+.divide-neutral-800\/40>*+*{border-color:rgba(38,38,38,.4)}
+
+/* ===== grid-cols-3 + gap-1 + aspect-square (بدون CSS grid) ===== */
+.grid-cols-3:after{content:"";display:block;clear:both}
+.grid-cols-3>*{float:right;width:-webkit-calc((100% - .5rem) / 3);width:calc((100% - .5rem) / 3);margin-left:.25rem;margin-bottom:.25rem}
+.grid-cols-3>*:nth-child(3n){margin-left:0}
+.grid-cols-3>.col-span-3{float:none;width:100%;margin-left:0}
+.aspect-square:before{content:"";display:block;padding-top:100%}
+.aspect-square>img,.aspect-square>video,.aspect-square>.cvr{position:absolute;top:0;right:0}
+
+/* ===== بدائل object-fit للمتصفحات القديمة ===== */
+.cvr{background-size:cover;background-position:center center;background-repeat:no-repeat}
+img.nofit{width:auto;height:auto;max-width:100%;margin-left:auto;margin-right:auto}
+
+/* ===== شريط تقدّم الستوري ===== */
+@-webkit-keyframes sb{from{width:0}to{width:100%}}
+@keyframes sb{from{width:0}to{width:100%}}
+@media (min-width:768px){
+.md\:space-y-1>*+*{margin-top:.25rem;margin-bottom:0}
+}
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center">
+
+    <!-- شاشة تسجيل الدخول -->
+    <div id="auth-screen" class="w-full flex items-center justify-center p-4">
+        <div class="w-full max-w-sm space-y-4">
+            <div class="bg-black border border-neutral-800 p-8 rounded-sm text-center">
+                <h1 class="text-5xl font-serif italic mb-8 tracking-wider font-semibold">Instagram</h1>
+                <form id="auth-form" class="space-y-3" onsubmit="handleAuth(event)">
+                    <input type="text" id="auth-username" placeholder="اسم المستخدم" required 
+                        class="w-full px-3 py-2.5 bg-neutral-900 border border-neutral-700 rounded text-xs focus:outline-none focus:border-neutral-400 text-white placeholder-neutral-500">
+                    <input type="password" id="auth-password" placeholder="كلمة السر" required 
+                        class="w-full px-3 py-2.5 bg-neutral-900 border border-neutral-700 rounded text-xs focus:outline-none focus:border-neutral-400 text-white placeholder-neutral-500">
+                    <button type="submit" class="w-full bg-[#0095f6] hover:bg-[#1877f2] text-white py-2 rounded font-semibold text-sm transition mt-2">
+                        تسجيل الدخول / إنشاء حساب
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- التطبيق الرئيسي -->
+    <div id="app-screen" class="hidden w-full min-h-screen flex flex-col md:flex-row max-w-6xl mx-auto">
+        
+        <!-- الشريط الجانبي (Sidebar) مطابق لإنستغرام -->
+        <div class="w-full md:w-64 border-t md:border-t-0 md:border-l border-neutral-800 p-2 md:p-4 flex md:flex-col justify-between items-center md:items-start bg-black fixed bottom-0 inset-x-0 md:inset-x-auto md:bottom-auto md:sticky md:top-0 z-50">
+            <h1 class="text-2xl font-serif italic hidden md:block mb-6 px-2 cursor-pointer" onclick="switchTab('feed')">Instagram</h1>
+            <div class="flex md:flex-col w-full justify-around md:justify-start space-y-0 md:space-y-1 text-sm">
+                <button onclick="switchTab('feed')" class="flex items-center space-x-4 space-x-reverse p-3 hover:bg-neutral-900 rounded-lg w-full transition font-medium">
+                    <i class="fa-solid fa-house text-xl w-6"></i><span class="hidden md:inline">الصفحة الرئيسية</span>
+                </button>
+                <button onclick="switchTab('search')" class="flex items-center space-x-4 space-x-reverse p-3 hover:bg-neutral-900 rounded-lg w-full transition font-medium">
+                    <i class="fa-solid fa-magnifying-glass text-xl w-6"></i><span class="hidden md:inline">بحث واستكشاف</span>
+                </button>
+                <button onclick="switchTab('reels')" class="flex items-center space-x-4 space-x-reverse p-3 hover:bg-neutral-900 rounded-lg w-full transition font-medium">
+                    <i class="fa-solid fa-clapperboard text-xl w-6"></i><span class="hidden md:inline">ريلز</span>
+                </button>
+                <button onclick="switchTab('chat')" class="flex items-center space-x-4 space-x-reverse p-3 hover:bg-neutral-900 rounded-lg w-full transition font-medium relative">
+                    <i class="fa-solid fa-paper-plane text-xl w-6"></i><span class="hidden md:inline">الرسائل</span>
+                    <span id="nav-badge-requests" class="absolute top-2 right-2 md:right-auto md:left-4 bg-red-500 text-white text-[10px] px-1.5 rounded-full hidden">0</span>
+                </button>
+                <button onclick="switchTab('profile')" class="flex items-center space-x-4 space-x-reverse p-3 hover:bg-neutral-900 rounded-lg w-full transition font-medium">
+                    <i class="fa-solid fa-circle-user text-xl w-6"></i><span class="hidden md:inline">الملف الشخصي</span>
+                </button>
+            </div>
+            <button onclick="logout()" class="hidden md:flex items-center space-x-4 space-x-reverse p-3 text-red-500 hover:bg-neutral-900 rounded-lg w-full transition mt-auto font-medium">
+                <i class="fa-solid fa-right-from-bracket text-xl w-6"></i><span>تسجيل الخروج</span>
+            </button>
+        </div>
+
+        <!-- المحتوى الأساسي -->
+        <div class="flex-1 p-2 md:p-6 pb-20 md:pb-6 overflow-y-auto max-h-screen">
+            
+            <!-- 1. الفيد والستوريات (Feed) -->
+            <div id="tab-feed" class="max-w-md mx-auto space-y-6 py-4">
+                <!-- شريط الستوريات -->
+                <div class="bg-neutral-900 border border-neutral-800 p-3 rounded-xl flex space-x-4 space-x-reverse overflow-x-auto items-center" id="stories-container">
+                    <div class="flex flex-col items-center cursor-pointer flex-shrink-0" onclick="document.getElementById('story-file').click()">
+                        <div class="w-16 h-16 rounded-full border-2 border-[#0095f6] flex items-center justify-center bg-black text-xl">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <span class="text-[10px] mt-1">قصتك</span>
+                        <input type="file" id="story-file" accept="image/*,video/*" class="hidden" onclick="event.stopPropagation()" onchange="uploadStory(event)">
+                    </div>
+                </div>
+
+                <!-- صندوق نشر منشور جديد -->
+                <div class="bg-neutral-900 border border-neutral-800 p-4 rounded-xl space-y-3">
+                    <h3 class="font-semibold text-sm text-neutral-300">إنشاء منشور جديد</h3>
+                    <input type="text" id="post-caption" placeholder="اكتب تعليقاً على المنشور..." class="w-full p-2.5 bg-black border border-neutral-800 rounded text-sm focus:outline-none">
+                    <input type="file" id="post-file" accept="image/*,video/*" class="w-full text-xs text-neutral-400 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-[#0095f6] file:text-white cursor-pointer">
+                    <button onclick="createPost()" class="w-full bg-[#0095f6] hover:bg-[#1877f2] text-white p-2 rounded text-sm font-semibold transition">نشر المنشور</button>
+                </div>
+
+                <!-- عرض المنشورات -->
+                <div id="posts-container" class="space-y-6"></div>
+            </div>
+
+            <!-- 2. تبويب البحث (Search) -->
+            <div id="tab-search" class="hidden max-w-md mx-auto space-y-4 py-6">
+                <input type="text" id="search-user-input" placeholder="ابحث عن المستخدمين لمتابعتهم..." oninput="searchUsers()" class="w-full p-2.5 bg-neutral-900 border border-neutral-700 rounded-lg text-xs text-white focus:outline-none">
+                <div id="search-results" class="space-y-3"></div>
+            </div>
+
+            <!-- 3. تبويب الريلز (Reels) -->
+            <div id="tab-reels" class="hidden max-w-md mx-auto space-y-6 py-4">
+                <h2 class="font-bold text-base mb-4">فيديوهات الريلز</h2>
+                <div id="reels-container" class="space-y-6"></div>
+            </div>
+
+            <!-- 4. تبويب الرسائل والطلبات (Direct Chat & Requests) -->
+            <div id="tab-chat" class="hidden max-w-5xl mx-auto bg-neutral-900 border border-neutral-800 rounded-xl h-[88vh] flex overflow-hidden my-2">
+                <!-- قائمة المحادثات الجانبية -->
+                <div class="w-1/3 border-l border-neutral-800 flex flex-col bg-black">
+                    <div class="p-4 border-b border-neutral-800 flex justify-between items-center text-sm font-bold">
+                        <span id="chat-current-username">المستخدم</span>
+                    </div>
+                    <div class="flex border-b border-neutral-800 text-xs text-neutral-400 font-semibold text-center">
+                        <span onclick="switchChatTab('primary')" id="tab-btn-primary" class="flex-1 py-3 border-b-2 border-white text-white cursor-pointer">الدردشات</span>
+                        <span onclick="switchChatTab('requests')" id="tab-btn-requests" class="flex-1 py-3 cursor-pointer text-blue-400">الطلبات (<span id="requests-count">0</span>)</span>
+                    </div>
+                    <div id="chat-list-container" class="flex-1 overflow-y-auto divide-y divide-neutral-800/40"></div>
+                </div>
+
+                <!-- شاشة الدردشة الخاصة (PRV) -->
+                <div class="w-2/3 flex flex-col bg-black">
+                    <div id="active-chat-header" class="p-4 border-b border-neutral-800 font-semibold flex items-center justify-between text-sm">
+                        <span>اختر محادثة للبدء</span>
+                    </div>
+                    <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 flex flex-col">
+                        <p class="text-center text-neutral-500 text-xs my-auto">اختر صديقاً من القائمة لمراسلته مباشرة.</p>
+                    </div>
+                    <div id="chat-input-area" class="p-3 border-t border-neutral-800 hidden gap-2 bg-neutral-950 items-center">
+                        <input type="text" id="chat-input" placeholder="رسالة..." class="flex-1 p-2.5 bg-black border border-neutral-800 rounded-full text-sm focus:outline-none px-4">
+                        <button onclick="sendMessage()" class="text-[#0095f6] font-semibold text-sm px-4">إرسال</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. تبويب الملف الشخصي (Profile) -->
+            <div id="tab-profile" class="hidden max-w-2xl mx-auto space-y-6 py-6">
+                <div class="flex items-center gap-6 px-4">
+                    <div class="w-20 h-20 md:w-28 md:h-28 rounded-full border border-neutral-700 p-1 cursor-pointer overflow-hidden flex-shrink-0 relative" onclick="document.getElementById('profile-img-file').click()">
+                        <div id="profile-avatar-box" class="w-full h-full bg-neutral-800 rounded-full flex items-center justify-center text-3xl font-bold uppercase">U</div>
+                        <div id="avatar-cam" class="absolute bottom-0 inset-x-0 bg-black/80 text-center text-xs" style="padding:3px 0"><i class="fa-solid fa-camera"></i></div>
+                        <input type="file" id="profile-img-file" accept="image/*" class="hidden" onclick="event.stopPropagation()" onchange="updateProfilePicture(event)">
+                    </div>
+                    <div class="flex-1 space-y-3">
+                        <div class="flex items-center gap-4 flex-wrap">
+                            <h2 id="profile-username-display" class="text-lg font-semibold">اسم المستخدم</h2>
+                            <button id="profile-action-btn" onclick="openEditProfileModal()" class="bg-neutral-800 hover:bg-neutral-700 px-4 py-1.5 rounded text-xs font-semibold">تعديل الملف الشخصي</button>
+                            <button onclick="logout()" class="md:hidden bg-neutral-800 px-3 py-1.5 rounded text-xs font-semibold text-red-500">خروج</button>
+                        </div>
+                        <div class="flex gap-6 text-xs md:text-sm">
+                            <span><strong id="profile-posts-count">0</strong> منشورات</span>
+                            <span onclick="openFollowModal('followers')" class="cursor-pointer hover:text-blue-400"><strong id="profile-followers-count">0</strong> المتابِعون</span>
+                            <span onclick="openFollowModal('following')" class="cursor-pointer hover:text-blue-400"><strong id="profile-following-count">0</strong> المتابَعون</span>
+                        </div>
+                        <div>
+                            <p id="profile-bio-display" class="text-xs text-neutral-300">لا توجد نبذة تعريفية.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-neutral-800 pt-2">
+                    <div class="flex justify-center gap-8 text-xs font-semibold text-neutral-400 border-b border-neutral-800 pb-2">
+                        <span class="text-white border-b-2 border-white pb-2 -mb-2"><i class="fa-solid fa-table-cells ml-1"></i> المنشورات</span>
+                    </div>
+                    <div id="user-grid-posts" class="grid grid-cols-3 gap-1 mt-4"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- نوافذ منبثقة (Modals) -->
+    <div id="edit-profile-modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+        <div class="bg-neutral-900 border border-neutral-800 p-6 rounded-xl max-w-sm w-full space-y-4">
+            <h3 class="font-semibold text-sm">تعديل الملف الشخصي</h3>
+            <input type="text" id="edit-username" readonly title="لا يمكن تغيير اسم المستخدم" class="opacity-60 w-full p-2 bg-black border border-neutral-800 rounded text-xs text-white">
+            <button onclick="document.getElementById('profile-img-file').click()" class="w-full bg-neutral-800 text-white py-2 rounded text-xs font-semibold"><i class="fa-solid fa-camera ml-1"></i> تغيير صورة الملف الشخصي</button>
+            <textarea id="edit-bio" placeholder="السيرة الذاتية (Bio)..." class="w-full p-2 bg-black border border-neutral-800 rounded text-xs text-white"></textarea>
+            <div class="flex gap-2">
+                <button onclick="saveProfileChanges()" class="flex-1 bg-[#0095f6] text-white py-2 rounded text-xs font-semibold">حفظ</button>
+                <button onclick="document.getElementById('edit-profile-modal').classList.add('hidden')" class="flex-1 bg-neutral-800 text-white py-2 rounded text-xs font-semibold">إلغاء</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="follow-modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+        <div class="bg-neutral-900 border border-neutral-800 p-4 rounded-xl max-w-xs w-full space-y-3">
+            <div class="flex justify-between items-center border-b border-neutral-800 pb-2">
+                <h3 id="follow-modal-title" class="font-semibold text-xs">القائمة</h3>
+                <i class="fa-solid fa-xmark cursor-pointer" onclick="document.getElementById('follow-modal').classList.add('hidden')"></i>
+            </div>
+            <div id="follow-modal-list" class="space-y-2 max-h-60 overflow-y-auto"></div>
+        </div>
+    </div>
+
+    <div id="story-viewer-modal" class="hidden fixed inset-0 bg-black/95 flex items-center justify-center z-50 p-4">
+        <div class="relative max-w-md w-full flex flex-col items-center">
+            <i class="fa-solid fa-xmark text-white text-2xl absolute top-0 right-0 cursor-pointer p-4" onclick="closeStoryViewer()"></i>
+            <div id="story-viewer-content" class="w-full flex items-center justify-center"></div>
+        </div>
+    </div>
+
+    <script>
+/* ===== Polyfills صغيرة لـ iOS 7 (Promise) ===== */
+if (typeof window.Promise === 'undefined') {
+  (function () {
+    function P(fn) {
+      var st = 0, val, q = [], self = this;
+      function run() { var cbs = q; q = []; for (var i = 0; i < cbs.length; i++) cbs[i](); }
+      function fin(s, v) { if (st) return; st = s; val = v; setTimeout(run, 0); }
+      function res(v) {
+        if (st) return;
+        if (v && (typeof v === 'object' || typeof v === 'function')) {
+          var then;
+          try { then = v.then; } catch (e) { return fin(2, e); }
+          if (typeof then === 'function') {
+            var done = false;
+            try {
+              then.call(v, function (x) { if (!done) { done = true; res(x); } }, function (e) { if (!done) { done = true; fin(2, e); } });
+            } catch (e2) { if (!done) { done = true; fin(2, e2); } }
+            return;
+          }
+        }
+        fin(1, v);
+      }
+      self.then = function (ok, no) {
+        return new P(function (resolve, reject) {
+          function handle() {
+            var cb = st === 1 ? ok : no;
+            if (typeof cb !== 'function') { (st === 1 ? resolve : reject)(val); return; }
+            try { resolve(cb(val)); } catch (e) { reject(e); }
+          }
+          if (st) setTimeout(handle, 0); else q.push(handle);
+        });
+      };
+      self['catch'] = function (no) { return self.then(undefined, no); };
+      try { fn(res, function (e) { fin(2, e); }); } catch (e) { fin(2, e); }
+    }
+    P.resolve = function (v) { return new P(function (r) { r(v); }); };
+    P.reject = function (e) { return new P(function (_, r) { r(e); }); };
+    window.Promise = P;
+  })();
+}
+
+/* ===== الإعدادات ===== */
+var BIN_ID = "6ab54083ac6210605af143c6";
+var API_KEY = "$2a$10$ao7CKfRkRsB2DcgYyd9rXezResMbxJIi7Ttp7WAH0.TeXj2L8tamO";
+var API_URL = 'https://api.jsonbin.io/v3/b/' + BIN_ID;
+
+function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+function lsDel(k) { try { localStorage.removeItem(k); } catch (e) {} }
+
+var currentUser = lsGet('insta_user') || null;
+var activeChatPartner = null;
+var currentChatSubTab = 'primary';
+
+/* ===== أدوات ===== */
+function $(id) { return document.getElementById(id); }
+function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
+function pid(p) { return p.id || (p.user + '|' + p.time + '|' + (p.fileUrl || '').length); }
+function closestData(el) {
+  while (el && el.nodeType === 1) { if (el.hasAttribute('data-id')) return el; el = el.parentNode; }
+  return null;
+}
+function pidOf(el) { return closestData(el).getAttribute('data-id'); }
+function findPost(db, id) {
+  var ps = db.posts || [];
+  for (var i = 0; i < ps.length; i++) if (pid(ps[i]) === id) return ps[i];
+  return undefined;
+}
+function ago(t) {
+  var s = (Date.now() - t) / 1000;
+  return s < 60 ? 'الآن' : s < 3600 ? (~~(s / 60) + ' د') : s < 86400 ? (~~(s / 3600) + ' س') : (~~(s / 86400) + ' ي');
+}
+function liveStories() {
+  return (DB.stories || []).filter(function (s) { return !s.ts || Date.now() - s.ts < 864e5; });
+}
+var DB = {}, lastSig = '', profileUser = null, profileTab = 'posts', stQ = [], stI = 0, stT = null, openPostId = null;
+
+var OF = ('objectFit' in document.documentElement.style);          // object-fit مدعوم؟
+var OLD = !('imageOrientation' in document.documentElement.style);  // متصفح قديم (ما يديرش EXIF/تصحيح الصور)
+
+/* صورة "cover": object-fit أو background-image للمتصفحات القديمة */
+function img(url, cls) {
+  return OF
+    ? '<img src="' + url + '" class="' + cls + ' object-cover">'
+    : '<div class="' + cls + ' cvr" style="background-image:url(&quot;' + url + '&quot;)"></div>';
+}
+function av(u, sz) {
+  sz = sz || 'w-8 h-8';
+  var a = DB.users && DB.users[u] && DB.users[u].avatar;
+  return '<div class="' + sz + ' rounded-full bg-neutral-800 overflow-hidden flex items-center justify-center text-xs font-bold uppercase flex-shrink-0">' +
+    (a ? img(a, 'w-full h-full') : esc(u[0])) + '</div>';
+}
+
+/* ===== الشبكة: XMLHttpRequest بدل fetch ===== */
+function req(method, body) {
+  return new Promise(function (resolve, reject) {
+    var x = new XMLHttpRequest();
+    x.open(method, API_URL, true);
+    x.setRequestHeader('X-Master-Key', API_KEY);
+    if (body !== undefined) x.setRequestHeader('Content-Type', 'application/json');
+    x.onreadystatechange = function () {
+      if (x.readyState !== 4) return;
+      if (x.status === 0) { reject(new Error('network')); return; }
+      var j = null;
+      try { j = JSON.parse(x.responseText); } catch (e) {}
+      resolve({ ok: x.status >= 200 && x.status < 300, status: x.status, json: j });
+    };
+    x.send(body !== undefined ? JSON.stringify(body) : null);
+  });
+}
+function getDB() { return req('GET').then(function (r) { return r.json.record; }); }
+function updateDB(d) {
+  return req('PUT', d).then(function (r) {
+    if (!r.ok) alert('تعذّر الحفظ. ربما تجاوزت المساحة المسموحة في قاعدة البيانات.');
+    loadData();
+  });
+}
+function mutate(fn) { return getDB().then(function (db) { fn(db); return updateDB(db); }); }
+
+/* ===== SHA-256 بالجافاسكريبت (iOS 7 ما فيهش crypto.subtle) ===== */
+var SHA_K = [0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2];
+function utf8Bytes(str) {
+  var out = [], i, c, d;
+  for (i = 0; i < str.length; i++) {
+    c = str.charCodeAt(i);
+    if (c >= 0xD800 && c <= 0xDBFF && i + 1 < str.length) {
+      d = str.charCodeAt(i + 1);
+      if (d >= 0xDC00 && d <= 0xDFFF) { c = 0x10000 + ((c - 0xD800) << 10) + (d - 0xDC00); i++; }
+    }
+    if (c < 0x80) out.push(c);
+    else if (c < 0x800) out.push(0xC0 | (c >> 6), 0x80 | (c & 63));
+    else if (c < 0x10000) out.push(0xE0 | (c >> 12), 0x80 | ((c >> 6) & 63), 0x80 | (c & 63));
+    else out.push(0xF0 | (c >> 18), 0x80 | ((c >> 12) & 63), 0x80 | ((c >> 6) & 63), 0x80 | (c & 63));
+  }
+  return out;
+}
+function ror(x, n) { return (x >>> n) | (x << (32 - n)); }
+function sha256hex(str) {
+  var bytes = utf8Bytes(str), l = bytes.length, i, j;
+  bytes.push(0x80);
+  while (bytes.length % 64 !== 56) bytes.push(0);
+  var hi = Math.floor(l * 8 / 4294967296), lo = (l * 8) >>> 0;
+  bytes.push((hi >>> 24) & 255, (hi >>> 16) & 255, (hi >>> 8) & 255, hi & 255, (lo >>> 24) & 255, (lo >>> 16) & 255, (lo >>> 8) & 255, lo & 255);
+  var H = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+  var w = new Array(64);
+  for (i = 0; i < bytes.length; i += 64) {
+    for (j = 0; j < 16; j++) w[j] = (bytes[i + 4 * j] << 24) | (bytes[i + 4 * j + 1] << 16) | (bytes[i + 4 * j + 2] << 8) | bytes[i + 4 * j + 3];
+    for (j = 16; j < 64; j++) {
+      var s0 = ror(w[j - 15], 7) ^ ror(w[j - 15], 18) ^ (w[j - 15] >>> 3);
+      var s1 = ror(w[j - 2], 17) ^ ror(w[j - 2], 19) ^ (w[j - 2] >>> 10);
+      w[j] = (w[j - 16] + s0 + w[j - 7] + s1) | 0;
+    }
+    var a = H[0], b = H[1], c = H[2], d = H[3], e = H[4], f = H[5], g = H[6], h = H[7];
+    for (j = 0; j < 64; j++) {
+      var S1 = ror(e, 6) ^ ror(e, 11) ^ ror(e, 25);
+      var ch = (e & f) ^ (~e & g);
+      var t1 = (h + S1 + ch + SHA_K[j] + w[j]) | 0;
+      var S0 = ror(a, 2) ^ ror(a, 13) ^ ror(a, 22);
+      var maj = (a & b) ^ (a & c) ^ (b & c);
+      var t2 = (S0 + maj) | 0;
+      h = g; g = f; f = e; e = (d + t1) | 0; d = c; c = b; b = a; a = (t1 + t2) | 0;
+    }
+    H[0] = (H[0] + a) | 0; H[1] = (H[1] + b) | 0; H[2] = (H[2] + c) | 0; H[3] = (H[3] + d) | 0;
+    H[4] = (H[4] + e) | 0; H[5] = (H[5] + f) | 0; H[6] = (H[6] + g) | 0; H[7] = (H[7] + h) | 0;
+  }
+  var hex = '';
+  for (i = 0; i < 8; i++) hex += ('00000000' + (H[i] >>> 0).toString(16)).slice(-8);
+  return hex;
+}
+function sha(s) { return sha256hex('insta:' + s); }
+
+/* ===== تسجيل الدخول ===== */
+function validName(u) {
+  try { return new RegExp('^[\\p{L}\\p{N}_.]{3,30}$', 'u').test(u); } catch (e) {}
+  if (u.length < 3 || u.length > 30) return false;
+  for (var i = 0; i < u.length; i++) {
+    var c = u.charCodeAt(i);
+    if (c < 128) { if (!/[A-Za-z0-9_.]/.test(u.charAt(i))) return false; }
+    else if (c < 192 || (c >= 0x2000 && c <= 0x2BFF) || (c >= 0x3000 && c <= 0x303F) || (c >= 0xD800 && c <= 0xDFFF)) return false;
+  }
+  return true;
+}
+function enterApp(u) { currentUser = u; lsSet('insta_user', u); showApp(); if (window.initNotifs) initNotifs(); }
+function handleAuth(e) {
+  e.preventDefault();
+  var u = $('auth-username').value.trim(), p = $('auth-password').value.trim();
+  if (!u || !p) return;
+  getDB().then(function (db) {
+    db.users = db.users || {};
+    var h = sha(p), x = db.users[u];
+    if (x) {
+      if (x.password !== h && x.password !== p) return alert('كلمة السر غير صحيحة!');
+      if (x.password === p && h !== p) { x.password = h; return updateDB(db).then(function () { enterApp(u); }); }
+    } else {
+      if (!validName(u)) return alert('اسم المستخدم: من 3 إلى 30 حرفاً (حروف، أرقام، _ أو .)');
+      if (p.length < 6) return alert('كلمة السر لازم تكون 6 أحرف على الأقل');
+      db.users[u] = { password: h, bio: '', avatar: '', followers: [], following: [], saved: [] };
+      return updateDB(db).then(function () { enterApp(u); });
+    }
+    enterApp(u);
+  })['catch'](function () { alert('مشكل في الاتصال، عاود حاول'); });
+}
+function showApp() {
+  $('auth-screen').classList.add('hidden');
+  $('app-screen').classList.remove('hidden');
+  loadData();
+  setInterval(loadData, 5000);
+}
+window.logout = function () { lsDel('insta_user'); location.reload(); };
+
+/* ===== تحميل البيانات (بدون إعادة رسم إذا ما تبدل والو) ===== */
+function loadData() {
+  return getDB().then(function (db) {
+    DB = db;
+    try { checkNotifs(db); } catch (e) { if (window.console) console.error(e); }
+    var sig = JSON.stringify([db.posts, db.stories, db.users]);
+    if (sig !== lastSig) {
+      lastSig = sig;
+      renderPosts(db.posts || []); renderReels(db.posts || []); renderStories();
+      if (!$('tab-profile').classList.contains('hidden')) loadProfileData();
+      if (openPostId && !$('story-viewer-modal').classList.contains('hidden')) { var p = findPost(db, openPostId); if (p) showPost(p); }
+    }
+    renderChatList(db);
+    if (activeChatPartner) renderMessages(db.messages || []);
+  })['catch'](function (err) { if (window.console) console.error(err); });
+}
+
+/* ===== رفع الملفات: ضغط الصور + تصحيح مشاكل iOS القديم ===== */
+function getOrientation(view) {
+  if (view.getUint16(0, false) !== 0xFFD8) return 1;
+  var length = view.byteLength, offset = 2;
+  while (offset < length) {
+    var marker = view.getUint16(offset, false); offset += 2;
+    if (marker === 0xFFE1) {
+      offset += 2;
+      if (view.getUint32(offset, false) !== 0x45786966) return 1;
+      offset += 6;
+      var little = view.getUint16(offset, false) === 0x4949;
+      offset += view.getUint32(offset + 4, little);
+      var tags = view.getUint16(offset, little); offset += 2;
+      for (var i = 0; i < tags; i++) if (view.getUint16(offset + (i * 12), little) === 0x0112) return view.getUint16(offset + (i * 12) + 8, little);
+      return 1;
+    } else if ((marker & 0xFF00) !== 0xFF00) break;
+    else offset += view.getUint16(offset, false);
+  }
+  return 1;
+}
+function readOrientation(file, cb) {
+  if (!OLD || file.type !== 'image/jpeg' || !window.FileReader || !window.DataView) return cb(1);
+  try {
+    var r = new FileReader(), blob = file.slice ? file.slice(0, 131072) : file;
+    r.onload = function () { var o = 1; try { o = getOrientation(new DataView(r.result)); } catch (e) {} cb(o >= 1 && o <= 8 ? o : 1); };
+    r.onerror = function () { cb(1); };
+    r.readAsArrayBuffer(blob);
+  } catch (e) { cb(1); }
+}
+function detectSubsampling(im, iw, ih) {
+  if (iw * ih > 1024 * 1024) {
+    var c = document.createElement('canvas'); c.width = c.height = 1;
+    var x = c.getContext('2d'); x.drawImage(im, -iw + 1, 0);
+    return x.getImageData(0, 0, 1, 1).data[3] === 0;
+  }
+  return false;
+}
+function detectVerticalSquash(im, iw, ih) {
+  var c = document.createElement('canvas'); c.width = 1; c.height = ih;
+  var x = c.getContext('2d'); x.drawImage(im, 0, 0);
+  var data = x.getImageData(0, 0, 1, ih).data, sy = 0, ey = ih, py = ih;
+  while (py > sy) { var a = data[(py - 1) * 4 + 3]; if (a === 0) ey = py; else sy = py; py = (ey + sy) >> 1; }
+  var ratio = py / ih;
+  return ratio === 0 ? 1 : ratio;
+}
+function paint(ctx, im, dw, dh, isJpeg) {
+  var iw = im.naturalWidth || im.width, ih = im.naturalHeight || im.height;
+  if (OLD && iw * ih > 1024 * 1024) {
+    var sub = false, vr = 1;
+    try {
+      sub = detectSubsampling(im, iw, ih);
+      if (sub) { iw /= 2; ih /= 2; }
+      if (isJpeg) vr = detectVerticalSquash(im, iw, ih);
+    } catch (e) { sub = false; vr = 1; }
+    if (sub || vr !== 1) {
+      var d = 1024, t = document.createElement('canvas'); t.width = t.height = d;
+      var tc = t.getContext('2d');
+      var tw = Math.ceil(d * dw / iw), th = Math.ceil(d * dh / ih / vr), sy = 0, y = 0;
+      while (sy < ih) {
+        var sx = 0, x = 0;
+        while (sx < iw) {
+          tc.clearRect(0, 0, d, d); tc.drawImage(im, -sx, -sy);
+          ctx.drawImage(t, 0, 0, d, d, x, y, tw, th);
+          sx += d; x += tw;
+        }
+        sy += d; y += th;
+      }
+      return;
+    }
+  }
+  ctx.drawImage(im, 0, 0, dw, dh);
+}
+function loadImageFromFile(file, ok, no) {
+  var im = new Image(), U = window.URL || window.webkitURL, blobUrl = null;
+  im.onload = function () { if (blobUrl) { try { U.revokeObjectURL(blobUrl); } catch (e) {} } ok(im); };
+  im.onerror = function () { alert('تعذّر قراءة الصورة'); no(); };
+  if (U && U.createObjectURL) { blobUrl = U.createObjectURL(file); im.src = blobUrl; }
+  else {
+    var r = new FileReader();
+    r.onload = function () { im.src = r.result; };
+    r.onerror = function () { alert('تعذّر قراءة الصورة'); no(); };
+    r.readAsDataURL(file);
+  }
+}
+function convertFileToBase64(file) {
+  return new Promise(function (ok, no) {
+    if (file.type.indexOf('image') === 0) {
+      readOrientation(file, function (o) {
+        loadImageFromFile(file, function (im) {
+          var iw = im.width, ih = im.height, k = Math.min(1, 720 / Math.max(iw, ih));
+          var w = iw * k, h = ih * k, c = document.createElement('canvas'), cx = c.getContext('2d');
+          if (o > 4) { c.width = h; c.height = w; } else { c.width = w; c.height = h; }
+          switch (o) {
+            case 2: cx.transform(-1, 0, 0, 1, w, 0); break;
+            case 3: cx.transform(-1, 0, 0, -1, w, h); break;
+            case 4: cx.transform(1, 0, 0, -1, 0, h); break;
+            case 5: cx.transform(0, 1, 1, 0, 0, 0); break;
+            case 6: cx.transform(0, 1, -1, 0, h, 0); break;
+            case 7: cx.transform(0, -1, -1, 0, h, w); break;
+            case 8: cx.transform(0, -1, 1, 0, 0, w); break;
+          }
+          paint(cx, im, w, h, file.type === 'image/jpeg');
+          ok(c.toDataURL('image/jpeg', 0.6));
+        }, no);
+      });
+    } else if (file.size > 1.5e6) { alert('الفيديو كبير (الحد الأقصى 1.5 ميغابايت)'); no(new Error('big')); }
+    else { var r = new FileReader(); r.onload = function () { ok(r.result); }; r.onerror = no; r.readAsDataURL(file); }
+  });
+}
+
+/* ===== المنشورات: إعجاب، تعليق، حفظ، حذف ===== */
+function showPost(p) {
+  $('story-viewer-content').innerHTML = '<div class="w-full max-h-[85vh] overflow-y-auto rounded-xl">' + postCard(p) + '</div>';
+}
+function postCard(p) {
+  var id = pid(p), likes = p.likes || [], cm = p.comments || [], liked = likes.indexOf(currentUser) > -1,
+      saved = ((DB.users && DB.users[currentUser] && DB.users[currentUser].saved) || []).indexOf(id) > -1;
+  var media = p.isVideo
+    ? '<video src="' + p.fileUrl + '" controls playsinline webkit-playsinline class="w-full max-h-[480px] bg-black"></video>'
+    : '<img src="' + p.fileUrl + '" ondblclick="toggleLike(pidOf(this),true)" ontouchstart="tapStart(event)" ontouchend="tapEnd(event,this)" class="' + (OF ? 'w-full object-cover' : 'nofit') + ' max-h-[480px] bg-neutral-950 select-none">';
+  var comments = '';
+  for (var i = 0; i < cm.length; i++) comments += '<div class="text-xs break-words"><b class="ml-1">' + esc(cm[i].user) + '</b>' + esc(cm[i].text) + '</div>';
+  return '<div data-id="' + esc(id) + '" class="bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden">' +
+    '<div class="p-3 flex items-center justify-between">' +
+      '<div class="flex items-center gap-2 cursor-pointer text-xs font-semibold" onclick="viewProfile(\'' + p.user + '\')">' + av(p.user) + '<span>' + esc(p.user) + '</span><span class="text-[10px] text-neutral-500 font-normal">' + (p.ts ? ago(p.ts) : esc(p.time || '')) + '</span></div>' +
+      (p.user === currentUser ? '<i class="fa-regular fa-trash-can text-neutral-500 hover:text-red-500 cursor-pointer" onclick="deletePost(pidOf(this))"></i>' : '') +
+    '</div>' +
+    media +
+    '<div class="px-3 pt-3 flex items-center gap-4 text-xl">' +
+      '<i class="' + (liked ? 'fa-solid text-red-500' : 'fa-regular') + ' fa-heart cursor-pointer" onclick="toggleLike(pidOf(this))"></i>' +
+      '<i class="fa-regular fa-comment cursor-pointer" onclick="focusComment(this)"></i>' +
+      '<i class="' + (saved ? 'fa-solid' : 'fa-regular') + ' fa-bookmark cursor-pointer mr-auto" onclick="toggleSave(pidOf(this))"></i>' +
+    '</div>' +
+    '<div class="px-3 pt-2 text-xs font-semibold">' + likes.length + ' إعجاب</div>' +
+    (p.caption ? '<div class="px-3 pt-1 text-xs break-words"><b class="ml-1">' + esc(p.user) + '</b>' + esc(p.caption) + '</div>' : '') +
+    '<div class="px-3 pt-1 max-h-32 overflow-y-auto space-y-0.5">' + comments + '</div>' +
+    '<div class="flex items-center border-t border-neutral-800 mt-3">' +
+      '<input placeholder="أضف تعليقاً..." maxlength="300" onkeydown="if(event.keyCode===13)addComment(pidOf(this),this)" class="flex-1 bg-transparent p-3 text-xs focus:outline-none">' +
+      '<button class="text-[#0095f6] text-xs font-semibold px-3" onclick="addComment(pidOf(this),this.previousElementSibling)">نشر</button>' +
+    '</div></div>';
+}
+function focusComment(el) { var c = closestData(el); if (c) c.getElementsByTagName('input')[0].focus(); }
+
+/* الضغط مرتين على الصورة = إعجاب (iOS ما يبعثش dblclick) */
+var lastTap = 0, tapX = 0, tapY = 0, tapMoved = false;
+function tapStart(ev) { var t = ev.touches && ev.touches[0]; if (t) { tapX = t.clientX; tapY = t.clientY; } tapMoved = false; }
+function tapEnd(ev, el) {
+  var t = ev.changedTouches && ev.changedTouches[0];
+  if (t && (Math.abs(t.clientX - tapX) > 10 || Math.abs(t.clientY - tapY) > 10)) { lastTap = 0; return; }
+  var now = Date.now();
+  if (now - lastTap < 300) { lastTap = 0; ev.preventDefault(); toggleLike(pidOf(el), true); }
+  else lastTap = now;
+}
+
+function renderPosts(posts) {
+  var h = '';
+  for (var i = 0; i < posts.length; i++) h += postCard(posts[i]);
+  $('posts-container').innerHTML = h || '<p class="text-center text-neutral-500 text-sm">لا توجد منشورات، كن أول من ينشر!</p>';
+}
+function renderReels(posts) {
+  var h = '';
+  for (var i = 0; i < posts.length; i++) if (posts[i].isVideo) h += postCard(posts[i]);
+  $('reels-container').innerHTML = h || '<p class="text-center text-neutral-500 text-xs">لا توجد فيديوهات ريلز متاحة حالياً</p>';
+}
+
+window.toggleLike = function (id, onlyAdd) {
+  return mutate(function (db) {
+    var p = findPost(db, id); if (!p) return;
+    p.likes = p.likes || []; var k = p.likes.indexOf(currentUser);
+    if (k > -1) { if (!onlyAdd) p.likes.splice(k, 1); } else p.likes.push(currentUser);
+  });
+};
+window.addComment = function (id, inp) {
+  var t = inp.value.trim(); if (!t) return; inp.value = '';
+  mutate(function (db) { var p = findPost(db, id); if (p) (p.comments = p.comments || []).push({ user: currentUser, text: t, ts: Date.now() }); });
+};
+window.toggleSave = function (id) {
+  return mutate(function (db) {
+    var u = db.users[currentUser]; u.saved = u.saved || []; var k = u.saved.indexOf(id);
+    if (k > -1) u.saved.splice(k, 1); else u.saved.push(id);
+  });
+};
+window.deletePost = function (id) {
+  if (confirm('حذف هذا المنشور؟')) mutate(function (db) {
+    db.posts = (db.posts || []).filter(function (p) { return pid(p) !== id || p.user !== currentUser; });
+  });
+};
+window.openPost = function (id) {
+  var p = findPost(DB, id); if (!p) return;
+  openPostId = id; showPost(p); $('story-viewer-modal').classList.remove('hidden');
+};
+window.createPost = function () {
+  var f = $('post-file').files[0];
+  if (!f) return alert('الرجاء اختيار صورة أو فيديو للنشر');
+  return convertFileToBase64(f).then(function (fileUrl) {
+    return mutate(function (db) {
+      (db.posts = db.posts || []).unshift({ id: uid(), user: currentUser, caption: $('post-caption').value.trim(), fileUrl: fileUrl, isVideo: f.type.indexOf('video') === 0, ts: Date.now(), likes: [], comments: [] });
+    });
+  }).then(function () {
+    $('post-caption').value = ''; $('post-file').value = '';
+  });
+};
+
+/* ===== الستوريات: مجمّعة حسب المستخدم، تنتهي بعد 24 ساعة، شريط تقدّم ===== */
+function renderStories() {
+  var ls = liveStories(), users = [], i;
+  for (i = 0; i < ls.length; i++) if (users.indexOf(ls[i].user) < 0) users.push(ls[i].user);
+  var h = '<div class="flex flex-col items-center cursor-pointer flex-shrink-0" onclick="$(\'story-file\').click()"><div class="w-16 h-16 rounded-full border-2 border-[#0095f6] flex items-center justify-center bg-black text-xl"><i class="fa-solid fa-plus"></i></div><span class="text-[10px] mt-1">قصتك</span><input type="file" id="story-file" accept="image/*,video/*" class="hidden" onclick="event.stopPropagation()" onchange="uploadStory(event)"></div>';
+  for (i = 0; i < users.length; i++) {
+    var u = users[i];
+    h += '<div class="flex flex-col items-center flex-shrink-0 cursor-pointer" onclick="openStories(\'' + u + '\')"><div class="w-16 h-16 rounded-full p-[2px] bg-gradient-to-tr from-yellow-500 via-red-500 to-purple-600"><div class="w-full h-full rounded-full border-2 border-black overflow-hidden">' + av(u, 'w-full h-full') + '</div></div><span class="text-[10px] mt-1 text-neutral-300 max-w-[64px] truncate">' + (u === currentUser ? 'قصتك' : esc(u)) + '</span></div>';
+  }
+  $('stories-container').innerHTML = h;
+}
+window.uploadStory = function (e) {
+  var f = e.target.files[0]; if (!f) return;
+  return convertFileToBase64(f).then(function (fileUrl) {
+    return mutate(function (db) {
+      db.stories = (db.stories || []).filter(function (s) { return !s.ts || Date.now() - s.ts < 864e5; });
+      db.stories.push({ user: currentUser, fileUrl: fileUrl, isVideo: f.type.indexOf('video') === 0, ts: Date.now() });
+    });
+  });
+};
+window.openStories = function (u) {
+  openPostId = null;
+  stQ = liveStories().filter(function (s) { return s.user === u; });
+  stI = 0;
+  if (stQ.length) playStory();
+};
+function playStory() {
+  clearTimeout(stT);
+  var s = stQ[stI]; if (!s) return closeStoryViewer();
+  var media = s.isVideo
+    ? '<video src="' + s.fileUrl + '" autoplay playsinline webkit-playsinline onended="nextStory()" class="max-h-[80vh] rounded"></video>'
+    : '<img src="' + s.fileUrl + '" class="max-h-[80vh] rounded">';
+  var bars = '';
+  for (var i = 0; i < stQ.length; i++) {
+    bars += '<div class="h-0.5 flex-1 bg-neutral-700 rounded overflow-hidden"><div class="h-full bg-white" style="width:' + (i < stI ? 100 : 0) + '%;' + (i === stI && !s.isVideo ? '-webkit-animation:sb 5s linear forwards;animation:sb 5s linear forwards' : '') + '"></div></div>';
+  }
+  $('story-viewer-content').innerHTML = '<div class="w-full">' +
+    '<div class="flex gap-1 mb-2">' + bars + '</div>' +
+    '<div class="flex items-center gap-2 mb-2 text-xs">' + av(s.user) + '<b>' + esc(s.user) + '</b><span class="text-neutral-400">' + (s.ts ? ago(s.ts) : '') + '</span></div>' +
+    '<div class="flex justify-center" onclick="nextStory()">' + media + '</div></div>';
+  $('story-viewer-modal').classList.remove('hidden');
+  if (s.isVideo) {
+    var v = $('story-viewer-content').getElementsByTagName('video')[0];
+    if (v) { try { v.play(); } catch (e) {} }
+  } else stT = setTimeout(nextStory, 5000);
+}
+window.nextStory = function () { stI++; playStory(); };
+window.closeStoryViewer = function () {
+  clearTimeout(stT); openPostId = null;
+  $('story-viewer-modal').classList.add('hidden');
+  $('story-viewer-content').innerHTML = '';
+};
+
+/* ===== التنقل + الملفات الشخصية ===== */
+window.switchTab = function (tab, keep) {
+  var tabs = ['feed', 'search', 'reels', 'chat', 'profile'];
+  for (var i = 0; i < tabs.length; i++) $('tab-' + tabs[i]).classList.add('hidden');
+  $('tab-' + tab).classList.remove('hidden');
+  if (tab === 'profile') { if (!keep) profileUser = null; loadProfileData(); }
+  if (tab === 'search') searchUsers();
+  if (tab === 'chat') loadData();
+};
+window.viewProfile = function (u) {
+  closeStoryViewer();
+  profileUser = u === currentUser ? null : u;
+  profileTab = 'posts';
+  switchTab('profile', true);
+};
+
+function loadProfileData() {
+  var u = profileUser || currentUser, own = u === currentUser;
+  var d = (DB.users && DB.users[u]) || {}, me = (DB.users && DB.users[currentUser]) || {};
+  var f = (me.following || []).indexOf(u) > -1, saved = me.saved || [];
+  $('profile-username-display').innerText = u;
+  $('profile-bio-display').innerText = d.bio || (own ? 'لا توجد نبذة تعريفية...' : '');
+  $('profile-followers-count').innerText = (d.followers || []).length;
+  $('profile-following-count').innerText = (d.following || []).length;
+  $('profile-avatar-box').innerHTML = d.avatar ? img(d.avatar, 'w-full h-full rounded-full') : esc(u[0]);
+  $('profile-avatar-box').parentElement.onclick = own ? function () { $('profile-img-file').click(); } : null;
+  $('avatar-cam').style.display = own ? 'block' : 'none';
+  var btn = $('profile-action-btn');
+  btn.innerText = own ? 'تعديل الملف الشخصي' : f ? 'متابَع' : 'متابعة';
+  btn.onclick = own ? openEditProfileModal : function () { toggleFollow(u); };
+  btn.className = 'px-4 py-1.5 rounded text-xs font-semibold ' + (own || f ? 'bg-neutral-800 hover:bg-neutral-700' : 'bg-[#0095f6]');
+  var mine = (DB.posts || []).filter(function (p) { return p.user === u; });
+  $('profile-posts-count').innerText = mine.length;
+  var tab = own ? profileTab : 'posts';
+  var list = tab === 'saved' ? (DB.posts || []).filter(function (p) { return saved.indexOf(pid(p)) > -1; }) : mine;
+  var tabs = own ? ['posts', 'saved'] : ['posts'], th = '';
+  for (var i = 0; i < tabs.length; i++) {
+    var t = tabs[i];
+    th += '<span onclick="profileTab=\'' + t + '\';loadProfileData()" class="cursor-pointer pb-2 -mb-2 ' + (tab === t ? 'text-white border-b-2 border-white' : '') + '"><i class="fa-' + (t === 'posts' ? 'solid fa-table-cells' : 'regular fa-bookmark') + ' ml-1"></i> ' + (t === 'posts' ? 'المنشورات' : 'المحفوظات') + '</span>';
+  }
+  $('user-grid-posts').previousElementSibling.innerHTML = th;
+  var gh = '';
+  for (var j = 0; j < list.length; j++) {
+    var p = list[j];
+    gh += '<div data-id="' + esc(pid(p)) + '" onclick="openPost(pidOf(this))" class="aspect-square bg-neutral-900 overflow-hidden cursor-pointer relative">' +
+      (p.isVideo
+        ? '<video src="' + p.fileUrl + '" class="w-full h-full object-cover"></video><i class="fa-solid fa-clapperboard absolute top-2 right-2 text-xs"></i>'
+        : img(p.fileUrl, 'w-full h-full')) + '</div>';
+  }
+  $('user-grid-posts').innerHTML = gh || '<div class="col-span-3 text-center py-12 text-neutral-500 text-xs">' + (tab === 'saved' ? 'ما حفظت حتى منشور' : 'لا توجد منشورات حتى الآن') + '</div>';
+}
+window.openFollowModal = function (t) {
+  var d = (DB.users && DB.users[profileUser || currentUser]) || {};
+  var l = t === 'followers' ? (d.followers || []) : (d.following || []);
+  $('follow-modal-title').innerText = t === 'followers' ? 'المتابِعون' : 'المتابَعون';
+  var h = '';
+  for (var i = 0; i < l.length; i++) {
+    h += '<div onclick="$(\'follow-modal\').classList.add(\'hidden\');viewProfile(\'' + l[i] + '\')" class="p-2 bg-black border border-neutral-800 rounded text-xs font-semibold flex items-center gap-2 cursor-pointer">' + av(l[i]) + esc(l[i]) + '</div>';
+  }
+  $('follow-modal-list').innerHTML = h || '<p class="text-neutral-500 text-xs text-center py-2">لا يوجد أحد</p>';
+  $('follow-modal').classList.remove('hidden');
+};
+window.openEditProfileModal = function () {
+  $('edit-username').value = currentUser;
+  $('edit-bio').value = $('profile-bio-display').innerText;
+  $('edit-profile-modal').classList.remove('hidden');
+};
+window.updateProfilePicture = function (e) {
+  var file = e.target.files[0];
+  if (!file) return;
+  return convertFileToBase64(file).then(function (avatarUrl) {
+    return mutate(function (db) { db.users[currentUser].avatar = avatarUrl; });
+  }).then(function () { loadProfileData(); });
+};
+window.saveProfileChanges = function () {
+  var newName = $('edit-username').value.trim();
+  var newBio = $('edit-bio').value.trim();
+  return getDB().then(function (db) {
+    if (newName && newName !== currentUser) {
+      db.users[newName] = db.users[currentUser];
+      delete db.users[currentUser];
+      currentUser = newName;
+      lsSet('insta_user', currentUser);
+    }
+    db.users[currentUser].bio = newBio;
+    return updateDB(db);
+  }).then(function () {
+    $('edit-profile-modal').classList.add('hidden');
+    loadProfileData();
+  });
+};
+
+function searchUsers() {
+  var q = $('search-user-input').value.trim().toLowerCase(), me = (DB.users && DB.users[currentUser]) || {};
+  var names = Object.keys(DB.users || {}), h = '';
+  for (var i = 0; i < names.length; i++) {
+    var u = names[i];
+    if (u === currentUser || u.toLowerCase().indexOf(q) < 0) continue;
+    var f = (me.following || []).indexOf(u) > -1;
+    h += '<div class="flex items-center justify-between p-3 bg-neutral-900 border border-neutral-800 rounded-xl"><div class="flex items-center gap-3 cursor-pointer" onclick="viewProfile(\'' + u + '\')">' + av(u, 'w-10 h-10') + '<div class="text-xs"><p class="font-semibold">' + esc(u) + '</p><p class="text-neutral-500">' + esc((DB.users[u].bio || '').slice(0, 40)) + '</p></div></div><button onclick="toggleFollow(\'' + u + '\')" class="px-4 py-1.5 rounded text-xs font-semibold ' + (f ? 'bg-neutral-800' : 'bg-[#0095f6]') + '">' + (f ? 'متابَع' : 'متابعة') + '</button></div>';
+  }
+  $('search-results').innerHTML = h || '<p class="text-center text-neutral-500 text-xs">لم يتم العثور على مستخدمين</p>';
+}
+window.toggleFollow = function (targetUser) {
+  return getDB().then(function (db) {
+    db.users[currentUser].following = db.users[currentUser].following || [];
+    db.users[targetUser].followers = db.users[targetUser].followers || [];
+    var idx = db.users[currentUser].following.indexOf(targetUser);
+    if (idx > -1) {
+      db.users[currentUser].following.splice(idx, 1);
+      db.users[targetUser].followers = db.users[targetUser].followers.filter(function (u) { return u !== currentUser; });
+    } else {
+      db.users[currentUser].following.push(targetUser);
+      db.users[targetUser].followers.push(currentUser);
+    }
+    return updateDB(db);
+  }).then(function () {
+    searchUsers();
+    loadProfileData();
+  });
+};
+
+/* ===== الدردشة ===== */
+window.switchChatTab = function (tab) {
+  currentChatSubTab = tab;
+  $('tab-btn-primary').className = 'flex-1 py-3 cursor-pointer ' + (tab === 'primary' ? 'border-b-2 border-white text-white' : 'text-neutral-400');
+  $('tab-btn-requests').className = 'flex-1 py-3 cursor-pointer ' + (tab === 'requests' ? 'border-b-2 border-blue-400 text-blue-400' : 'text-neutral-400');
+  loadData();
+};
+function renderChatList(db) {
+  $('chat-current-username').innerText = currentUser;
+  var users = db.users || {}, me = users[currentUser] || {};
+  var myFollowing = me.following || [], myFollowers = me.followers || [], msgs = db.messages || [];
+  var primaryHtml = '', requestHtml = '', requestCount = 0, names = Object.keys(users);
+  for (var i = 0; i < names.length; i++) {
+    var uname = names[i];
+    if (uname === currentUser) continue;
+    var isMutual = myFollowing.indexOf(uname) > -1 || myFollowers.indexOf(uname) > -1;
+    var avatar = users[uname].avatar ? img(users[uname].avatar, 'w-full h-full rounded-full') : uname[0];
+    var sel = activeChatPartner === uname ? 'bg-neutral-800' : '';
+    if (isMutual) {
+      primaryHtml += '<div onclick="selectChatPartner(\'' + uname + '\')" class="p-3 flex items-center gap-3 cursor-pointer hover:bg-neutral-800/50 transition ' + sel + '">' +
+        '<div class="w-10 h-10 rounded-full bg-neutral-700 flex items-center justify-center font-bold uppercase text-xs">' + avatar + '</div>' +
+        '<div class="text-xs"><p class="font-semibold text-white">' + uname + '</p><p class="text-[10px] text-neutral-400">محادثة نشطة</p></div></div>';
+    } else {
+      var hasMsgFromHim = msgs.some(function (m) { return m.sender === uname && m.receiver === currentUser; });
+      if (hasMsgFromHim) {
+        requestCount++;
+        requestHtml += '<div onclick="selectChatPartner(\'' + uname + '\')" class="p-3 flex items-center justify-between cursor-pointer hover:bg-neutral-800/50 transition ' + sel + '">' +
+          '<div class="flex items-center gap-3">' +
+          '<div class="w-10 h-10 rounded-full bg-neutral-700 flex items-center justify-center font-bold uppercase text-xs">' + avatar + '</div>' +
+          '<div class="text-xs"><p class="font-semibold text-white">' + uname + '</p><p class="text-[10px] text-blue-400">يريد مراسلتك (طلب مراسلة)</p></div></div>' +
+          '<button onclick="toggleFollow(\'' + uname + '\'); event.stopPropagation();" class="bg-[#0095f6] text-white px-3 py-1 rounded text-[10px]">متابعة</button></div>';
+      }
+    }
+  }
+  $('requests-count').innerText = requestCount;
+  var badge = $('nav-badge-requests');
+  if (requestCount > 0) { badge.innerText = requestCount; badge.classList.remove('hidden'); }
+  else badge.classList.add('hidden');
+  $('chat-list-container').innerHTML = (currentChatSubTab === 'primary' ? primaryHtml : requestHtml) ||
+    '<p class="text-center text-neutral-500 text-xs p-4">لا توجد ' + (currentChatSubTab === 'primary' ? 'محادثات' : 'طلبات مراسلة') + '</p>';
+}
+window.selectChatPartner = function (partner) {
+  activeChatPartner = partner;
+  $('active-chat-header').innerHTML = '<span>محادثة مع: <strong>' + partner + '</strong></span>';
+  $('chat-input-area').classList.remove('hidden');
+  loadData();
+};
+window.sendMessage = function () {
+  var text = $('chat-input').value.trim();
+  if (!text || !activeChatPartner) return;
+  var to = activeChatPartner;
+  return getDB().then(function (db) {
+    db.messages = db.messages || [];
+    db.messages.push({ sender: currentUser, receiver: to, text: text, time: new Date().toLocaleTimeString() });
+    return updateDB(db);
+  }).then(function () { $('chat-input').value = ''; });
+};
+function renderMessages(ms) {
+  var c = $('chat-messages'), p = activeChatPartner, near = c.scrollHeight - c.scrollTop - c.clientHeight < 80, h = '';
+  for (var i = 0; i < ms.length; i++) {
+    var m = ms[i];
+    if (!((m.sender === currentUser && m.receiver === p) || (m.sender === p && m.receiver === currentUser))) continue;
+    var me = m.sender === currentUser;
+    h += '<div class="flex flex-col ' + (me ? 'items-end' : 'items-start') + ' mb-2"><span class="text-[9px] text-neutral-500 mb-0.5 px-1">' + esc(m.time || '') + '</span><div class="p-2.5 rounded-2xl text-xs max-w-[75%] break-words ' + (me ? 'bg-[#0095f6] text-white rounded-br-sm' : 'bg-neutral-800 text-neutral-200 rounded-bl-sm') + '">' + esc(m.text) + '</div></div>';
+  }
+  c.innerHTML = h || '<p class="text-center text-neutral-500 text-xs my-auto">ابدأ المحادثة الآن.</p>';
+  if (near || c.getAttribute('data-p') !== p) { c.scrollTop = c.scrollHeight; c.setAttribute('data-p', p); }
+}
+$('chat-input').addEventListener('keydown', function (e) { if (e.keyCode === 13) sendMessage(); }, false);
+
+
+/* ===== الإشعارات ===== */
+var NT = { origTitle: document.title, unread: 0 };
+function hasNative() { return typeof window.Notification !== 'undefined'; }
+function ntBeep() {
+  try {
+    var AC = window.AudioContext || window.webkitAudioContext; if (!AC) return;
+    var c = new AC(), o = c.createOscillator(), g = c.createGain();
+    o.connect(g); g.connect(c.destination); o.frequency.value = 880; g.gain.value = 0.08;
+    o.start(0); setTimeout(function () { try { o.stop(0); if (c.close) c.close(); } catch (e) {} }, 160);
+  } catch (e) {}
+}
+function ntToast(title, body, fn) {
+  var t = document.createElement('div');
+  t.style.cssText = 'position:fixed;top:10px;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);width:92%;max-width:360px;background:#262626;border:1px solid #404040;border-radius:14px;padding:12px 14px;z-index:9999;color:#fff;font-size:13px;cursor:pointer;box-shadow:0 6px 24px rgba(0,0,0,.6)';
+  var b = document.createElement('b'); b.textContent = title;
+  var p = document.createElement('div'); p.style.cssText = 'color:#d4d4d4;margin-top:2px;word-wrap:break-word'; p.textContent = body;
+  t.appendChild(b); t.appendChild(p);
+  function close() { if (t.parentNode) t.parentNode.removeChild(t); }
+  t.onclick = function () { close(); if (fn) fn(); };
+  document.body.appendChild(t);
+  setTimeout(close, 6000);
+}
+function ntNative(title, body, tag) {
+  if (!hasNative() || Notification.permission !== 'granted') return;
+  var opts = { body: body, tag: tag, dir: 'rtl', lang: 'ar' };
+  try { new Notification(title, opts); return; } catch (e) {}
+  // أندرويد: لازم عن طريق Service Worker
+  try {
+    navigator.serviceWorker.getRegistration().then(function (r) { if (r) r.showNotification(title, opts); });
+  } catch (e2) {}
+}
+function ntFire(title, body, tag, fn) {
+  var hidden = document.hidden === true;
+  if (!hidden) ntToast(title, body, fn);
+  ntNative(title, body, tag);
+  if (navigator.vibrate) { try { navigator.vibrate([200, 100, 200]); } catch (e) {} }
+  ntBeep();
+  if (hidden) { NT.unread++; document.title = '(' + NT.unread + ') ' + NT.origTitle; }
+}
+document.addEventListener('visibilitychange', function () {
+  if (!document.hidden) { NT.unread = 0; document.title = NT.origTitle; }
+}, false);
+
+function checkNotifs(db) {
+  if (!currentUser) return;
+  var k = 'insta_n_' + currentUser, i;
+  var mine = (db.messages || []).filter(function (m) { return m.receiver === currentUser; });
+  var me = (db.users && db.users[currentUser]) || {}, fol = me.followers || [];
+  var sm = lsGet(k + '_m'), sf = lsGet(k + '_f');
+  if (sm === null || sf === null) {            // أول مرة: نسجّل الوضع الحالي بلا إشعارات قديمة
+    lsSet(k + '_m', String(mine.length)); lsSet(k + '_f', JSON.stringify(fol)); return;
+  }
+  var oldN = parseInt(sm, 10) || 0;
+  if (mine.length < oldN) oldN = mine.length;
+  for (i = oldN; i < mine.length; i++) {
+    (function (m) {
+      var viewing = activeChatPartner === m.sender && !$('tab-chat').classList.contains('hidden') && !document.hidden;
+      if (viewing) return;
+      ntFire('رسالة جديدة من ' + m.sender, m.text, 'msg-' + m.sender, function () { switchTab('chat'); selectChatPartner(m.sender); });
+    })(mine[i]);
+  }
+  lsSet(k + '_m', String(mine.length));
+  var oldF = []; try { oldF = JSON.parse(sf) || []; } catch (e) {}
+  for (i = 0; i < fol.length; i++) {
+    if (oldF.indexOf(fol[i]) < 0) (function (u) { ntFire('متابع جديد', u + ' بدأ يتابعك', 'fol-' + u, function () { viewProfile(u); }); })(fol[i]);
+  }
+  lsSet(k + '_f', JSON.stringify(fol));
+}
+
+/* شريط طلب إذن الإشعارات (لازم يكون بضغطة من المستخدم) */
+function showNotifBanner() {
+  if (!hasNative() || Notification.permission !== 'default' || $('notif-banner')) return;
+  var d = document.createElement('div'); d.id = 'notif-banner';
+  d.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:9998;background:#0095f6;color:#fff;font-size:13px;padding:10px 12px;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-justify-content:space-between;justify-content:space-between';
+  d.innerHTML = '<span>فعّل الإشعارات باش توصلك الرسائل</span><span><button id="notif-yes" style="background:#fff;color:#0095f6;border-radius:6px;padding:4px 10px;font-weight:600;margin-left:6px">تفعيل</button><button id="notif-no" style="color:#fff;padding:4px 8px">لاحقاً</button></span>';
+  document.body.appendChild(d);
+  $('notif-no').onclick = function () { d.parentNode.removeChild(d); };
+  $('notif-yes').onclick = function () {
+    try {
+      var r = Notification.requestPermission(function () {});
+      if (r && r.then) r.then(function () {});
+    } catch (e) {}
+    d.parentNode.removeChild(d);
+  };
+}
+function initNotifs() {
+  try {
+    if (navigator.serviceWorker && /^https?:$/.test(location.protocol)) navigator.serviceWorker.register('sw.js')['catch'](function () {});
+  } catch (e) {}
+  setTimeout(showNotifBanner, 1500);
+}
+
+/* ===== البداية ===== */
+if (currentUser) { showApp(); initNotifs(); }
+</script>
+
+</body>
+</html>
